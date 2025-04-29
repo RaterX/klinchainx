@@ -1,0 +1,19 @@
+2025-04-29 15:38:40,248 - api_server - INFO - Cleaned up old files during startup
+2025-04-29 15:44:44,336 - api_server - INFO - Processing PDF uploads\45f26276-74a1-4de0-9a71-1bfc5331645f.pdf with task ID 45f26276-74a1-4de0-9a71-1bfc5331645f
+2025-04-29 15:44:44,339 - pdf_processor - INFO - Initialized PDFProcessor with: output_format=parquet, chunk_size=1000, max_workers=2, extraction_method=pypdf, text_only=True
+2025-04-29 15:44:44,430 - pdf_processor - INFO - Processing PDF: uploads\45f26276-74a1-4de0-9a71-1bfc5331645f.pdf
+2025-04-29 15:44:49,783 - pdf_processor - INFO - Saved 2327 text-only entries to results\45f26276-74a1-4de0-9a71-1bfc5331645f.parquet
+2025-04-29 15:44:49,785 - pdf_processor - INFO - Successfully processed uploads\45f26276-74a1-4de0-9a71-1bfc5331645f.pdf in 5.45 seconds. Output saved to results\45f26276-74a1-4de0-9a71-1bfc5331645f.parquet
+2025-04-29 15:44:49,786 - api_server - INFO - Task 45f26276-74a1-4de0-9a71-1bfc5331645f completed successfully
+2025-04-29 15:46:23,377 - api_server - INFO - Processing PDF uploads\c15aee6a-7114-4938-92db-8728efa926bb.pdf with task ID c15aee6a-7114-4938-92db-8728efa926bb
+2025-04-29 15:46:23,380 - pdf_processor - INFO - Initialized PDFProcessor with: output_format=csv, chunk_size=1000, max_workers=2, extraction_method=pymupdf, text_only=False
+2025-04-29 15:46:23,413 - pdf_processor - INFO - Processing PDF: uploads\c15aee6a-7114-4938-92db-8728efa926bb.pdf
+2025-04-29 15:46:23,838 - pdf_processor - INFO - Saved 2327 text entries to results\c15aee6a-7114-4938-92db-8728efa926bb.csv
+2025-04-29 15:46:23,845 - pdf_processor - INFO - Successfully processed uploads\c15aee6a-7114-4938-92db-8728efa926bb.pdf in 0.46 seconds. Output saved to results\c15aee6a-7114-4938-92db-8728efa926bb.csv
+2025-04-29 15:46:23,846 - api_server - INFO - Task c15aee6a-7114-4938-92db-8728efa926bb completed successfully
+2025-04-29 15:47:19,984 - api_server - INFO - Processing PDF uploads\121e0a01-54bd-4de0-af45-0fb73e1d111d.pdf with task ID 121e0a01-54bd-4de0-af45-0fb73e1d111d
+2025-04-29 15:47:19,989 - pdf_processor - INFO - Initialized PDFProcessor with: output_format=csv, chunk_size=1000, max_workers=2, extraction_method=pymupdf, text_only=False
+2025-04-29 15:47:20,027 - pdf_processor - INFO - Processing PDF: uploads\121e0a01-54bd-4de0-af45-0fb73e1d111d.pdf
+2025-04-29 15:47:20,393 - pdf_processor - INFO - Saved 2327 text entries to results\121e0a01-54bd-4de0-af45-0fb73e1d111d.csv
+2025-04-29 15:47:20,395 - pdf_processor - INFO - Successfully processed uploads\121e0a01-54bd-4de0-af45-0fb73e1d111d.pdf in 0.40 seconds. Output saved to results\121e0a01-54bd-4de0-af45-0fb73e1d111d.csv
+2025-04-29 15:47:20,396 - api_server - INFO - Task 121e0a01-54bd-4de0-af45-0fb73e1d111d completed successfully
