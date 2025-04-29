@@ -1,9 +1,8 @@
 
 ## KlinChainX PDF Processing Pipeline
-
-<img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue">  
-<img alt="Python" src="https://img.shields.io/badge/python-3.9+-green">  
-<img alt="License" src="https://img.shields.io/badge/license-MIT-green">  
+<img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue">
+<img alt="Python" src="https://img.shields.io/badge/python-3.9+-green">
+<img alt="License" src="https://img.shields.io/badge/license-MIT-green">
 
 A robust production-ready PDF text extraction system designed for processing large volumes of documents, with specialized support for West African Pidgin and multilingual content.
 
