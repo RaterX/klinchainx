@@ -1,1 +1,0 @@
-# python -m klinchainx.preprocessing.preprocess -i C:\Users\USER\Documents\Raterx\klinchainx\next_batch_for_may.pdf -o extracted_data.csv --no-metadata
