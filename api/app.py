@@ -5,6 +5,7 @@ import time
 import shutil
 import logging
 import tempfile
+import asyncio  
 from pathlib import Path
 from typing import List, Dict, Optional
 
@@ -100,6 +101,7 @@ class TaskStatus(BaseModel):
     progress: int  # 0-100
     result_file: Optional[str] = None
     message: Optional[str] = None
+    scheduled_for_deletion: bool = False  # Add this line
 
 class ProcessingOptions(BaseModel):
     """Model for PDF processing options"""
@@ -194,12 +196,31 @@ async def download_result(task_id: str):
     )
 
 @app.delete("/api/tasks/{task_id}")
-async def delete_task(task_id: str):
+async def delete_task(task_id: str, background_tasks: BackgroundTasks):
     """Delete a task and its associated files"""
     if task_id not in tasks:
         raise HTTPException(status_code=404, detail=f"Task {task_id} not found")
     
     try:
+        # Mark for deletion without removing from tasks dict yet
+        tasks[task_id].scheduled_for_deletion = True
+        
+        # Schedule actual deletion for later (e.g., 5 minutes)
+        background_tasks.add_task(delayed_delete_task, task_id, delay=300)
+        
+        return {"message": f"Task {task_id} scheduled for deletion"}
+    except Exception as e:
+        logger.error(f"Error scheduling task deletion {task_id}: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Error scheduling task deletion: {str(e)}")
+
+async def delayed_delete_task(task_id: str, delay: int):
+    """Delete a task after a delay"""
+    await asyncio.sleep(delay)
+    
+    try:
+        if task_id not in tasks:
+            return
+        
         # Delete uploaded file
         upload_path = UPLOAD_DIR / f"{task_id}.pdf"
         if upload_path.exists():
@@ -213,10 +234,9 @@ async def delete_task(task_id: str):
         # Remove task from memory
         del tasks[task_id]
         
-        return {"message": f"Task {task_id} deleted successfully"}
+        logger.info(f"Task {task_id} deleted after delay")
     except Exception as e:
-        logger.error(f"Error deleting task {task_id}: {str(e)}")
-        raise HTTPException(status_code=500, detail=f"Error deleting task: {str(e)}")
+        logger.error(f"Error in delayed deletion of task {task_id}: {str(e)}")
 
 # Background processing function
 async def process_pdf(

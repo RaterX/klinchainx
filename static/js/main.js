@@ -242,7 +242,22 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Set download button action
         downloadBtn.onclick = () => {
+            // Temporarily show downloading state
+            const originalButtonText = downloadBtn.innerHTML;
+            downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Downloading...';
+            
+            // Start download
             window.location.href = `/api/download/${data.task_id}`;
+            
+            // Show brief "Downloaded" flash message, then restore button
+            setTimeout(() => {
+                downloadBtn.innerHTML = '<i class="fas fa-check-circle mr-2"></i> Downloaded!';
+                
+                // Return button to original state after showing message
+                setTimeout(() => {
+                    downloadBtn.innerHTML = originalButtonText;
+                }, 1500);
+            }, 1000);
         };
         
         // Load preview
