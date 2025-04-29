@@ -1,8 +1,9 @@
 
-## KlinChainX PDF Processing Pipeline
-<img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue">
-<img alt="Python" src="https://img.shields.io/badge/python-3.9+-green">
-<img alt="License" src="https://img.shields.io/badge/license-MIT-green">
+## KlinChainX 
+
+<img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue">  
+<img alt="Python" src="https://img.shields.io/badge/python-3.9+-green">  
+<img alt="License" src="https://img.shields.io/badge/license-MIT-green">  
 
 A robust production-ready PDF text extraction system designed for processing large volumes of documents, with specialized support for West African Pidgin and multilingual content.
 
@@ -56,12 +57,11 @@ PyMuPDF>=1.22.0
 python-dateutil>=2.8.2
 pyarrow>=12.0.0  # For parquet support
 ```
- System Configuration
+#### System Configuration
 For optimal performance, configure the following:
 
-
 1. Environment Variables:
-```
+```bash
 export CLEANCHAIN_OUTPUT_DIR=/path/to/output
 export CLEANCHAIN_LOG_LEVEL=INFO
 export CLEANCHAIN_MAX_WORKERS=8
@@ -70,28 +70,44 @@ export CLEANCHAIN_MAX_WORKERS=8
 ### Usage
 
 #### Command Line Interface
-##### Arguments
-| Argument       | Description                                                   |
-|----------------|---------------------------------------------------------------|
-| `-i, --input`  | Input PDF file or directory containing PDFs (required).        |
-| `-o, --output` | Output file or directory (created if doesn't exist).           |
-| `-f, --format` | Output format: csv, json, or parquet (default: csv).           |
-| `-m, --method` | Text extraction method: pypdf, pymupdf, or auto (default: auto). |
-| `-w, --workers`| Number of worker threads for directory processing (default: 4).|
-| `--no-metadata`| Do not include PDF metadata in output.                         |
-| `-v, --verbose`| Enable verbose logging.                                       |
-| `-h, --help`   | Show help message.                                            |
+The CLI provides a flexible way to process PDFs. Below are the arguments and their usage:
+
+| Argument       | Description                                                   | Example Usage                                                                 |
+|----------------|---------------------------------------------------------------|-------------------------------------------------------------------------------|
+| `-i, --input`  | Input PDF file or directory containing PDFs (required).        | `python klinchainx.py -i input.pdf`                                           |
+| `-o, --output` | Output file or directory (created if doesn't exist).           | `python klinchainx.py -i input.pdf -o output.csv`                             |
+| `-f, --format` | Output format: csv, json, or parquet (default: csv).           | `python klinchainx.py -i input.pdf -o output.json -f json`                    |
+| `-m, --method` | Text extraction method: pypdf, pymupdf, or auto (default: auto). | `python klinchainx.py -i input.pdf -m pymupdf`                                |
+| `-w, --workers`| Number of worker threads for directory processing (default: 4).| `python klinchainx.py -i /path/to/pdfs -w 8`                                  |
+| `--no-metadata`| Do not include PDF metadata in output.                         | `python klinchainx.py -i input.pdf --no-metadata`                             |
+| `--text-only`  | Output only the text column with no additional fields.         | `python klinchainx.py -i input.pdf --text-only`                               |
+| `-v, --verbose`| Enable verbose logging.                                       | `python klinchainx.py -i input.pdf -v`                                        |
+| `-h, --help`   | Show help message.                                            | `python klinchainx.py -h`                                                     |
 
 ##### Examples
 - Process a single PDF:  
-    `python klinchainx.py -i input.pdf -o output.csv`
+    ```bash
+    python klinchainx.py -i input.pdf -o output.csv
+    ```
 - Process a directory of PDFs:  
-    `python klinchainx.py -i /path/to/pdfs -o /path/to/output`
-- Process with specific options:  
-    `python klinchainx.py -i input.pdf -o output.json -f json -m pymupdf`
+    ```bash
+    python klinchainx.py -i /path/to/pdfs -o /path/to/output
+    ```
+- Extract text only:  
+    ```bash
+    python klinchainx.py -i input.pdf --text-only
+    ```
 
 #### Programmatic API
-The API allows integration into custom workflows. Refer to the documentation for detailed examples.
+The API allows integration into custom workflows. Below is an example:
+
+```python
+from klinchainx import PDFProcessor
+
+processor = PDFProcessor(output_format='json', max_workers=4, extraction_method='pymupdf')
+result = processor.process_file('sample.pdf', 'output.json')
+print(f"Processed file saved at: {result}")
+```
 
 ### Output Formats
 - **CSV**: Tabular format with columns like `page`, `text`, `filename`, etc.
@@ -111,6 +127,78 @@ The API allows integration into custom workflows. Refer to the documentation for
 2. Extract text and metadata.
 3. Clean and normalize text.
 4. Generate output in the specified format.
+
+#### Production-Ready Integration Example
+
+Below is a detailed Python script to use KlinChainX in a production-ready setup. This script includes robust error handling, logging, and flexibility for various use cases.
+
+```python
+import os
+import logging
+from klinchainx import PDFProcessor
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    handlers=[
+        logging.FileHandler("klinchainx.log"),
+        logging.StreamHandler()
+    ]
+)
+
+def process_pdfs(input_path, output_path, output_format="csv", max_workers=4, extraction_method="auto"):
+    """
+    Process PDFs using KlinChainX with robust error handling and logging.
+
+    Args:
+        input_path (str): Path to the input PDF file or directory.
+        output_path (str): Path to save the processed output.
+        output_format (str): Output format (csv, json, parquet). Default is 'csv'.
+        max_workers (int): Number of worker threads for parallel processing. Default is 4.
+        extraction_method (str): Text extraction method ('pypdf', 'pymupdf', 'auto'). Default is 'auto'.
+    """
+    try:
+        # Initialize the PDF processor
+        processor = PDFProcessor(
+            output_format=output_format,
+            max_workers=max_workers,
+            extraction_method=extraction_method
+        )
+
+        # Check if input is a file or directory
+        if os.path.isfile(input_path):
+            logging.info(f"Processing single file: {input_path}")
+            result = processor.process_file(input_path, output_path)
+            logging.info(f"Processed file saved at: {result}")
+        elif os.path.isdir(input_path):
+            logging.info(f"Processing directory: {input_path}")
+            results = processor.process_directory(input_path, output_path)
+            logging.info(f"Processed files saved at: {results}")
+        else:
+            logging.error("Invalid input path. Must be a file or directory.")
+            return
+
+    except Exception as e:
+        logging.error(f"An error occurred during processing: {e}", exc_info=True)
+
+if __name__ == "__main__":
+    # Example usage
+    input_path = "/path/to/input"
+    output_path = "/path/to/output"
+    output_format = "json"  # Options: 'csv', 'json', 'parquet'
+    max_workers = 8
+    extraction_method = "pymupdf"  # Options: 'pypdf', 'pymupdf', 'auto'
+
+    process_pdfs(input_path, output_path, output_format, max_workers, extraction_method)
+```
+
+
+#### Deployment Notes
+- **Dockerization**: Package the application in a Docker container for consistent deployment across environments.
+- **CI/CD Integration**: Use tools like GitHub Actions to automate testing and deployment.
+- **Monitoring**: Integrate logging and monitoring tools like ELK Stack or Prometheus for production environments.
+- **Scalability**: Use cloud services like AWS Lambda or Azure Functions for serverless processing of large document batches.
 
 ### Performance Considerations
 #### Resource Requirements

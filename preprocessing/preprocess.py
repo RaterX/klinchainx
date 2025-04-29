@@ -37,7 +37,8 @@ class PDFProcessor:
                  chunk_size: int = 1000, 
                  max_workers: int = 4,
                  extraction_method: str = 'auto',
-                 include_metadata: bool = True):
+                 include_metadata: bool = True,
+                 text_only: bool = False):  # Add this parameter
         """
         Initialize the PDF processor with configuration options.
         
@@ -47,16 +48,18 @@ class PDFProcessor:
             max_workers: Maximum number of parallel workers for multi-file processing
             extraction_method: Text extraction method ('pypdf', 'pymupdf', 'auto')
             include_metadata: Whether to include PDF metadata in output
+            text_only: Whether to output only the text column
         """
         self.output_format = output_format.lower()
         self.chunk_size = chunk_size
         self.max_workers = max_workers
         self.extraction_method = extraction_method
         self.include_metadata = include_metadata
+        self.text_only = text_only  # Store the new parameter
         
         logger.info(f"Initialized PDFProcessor with: output_format={output_format}, "
                     f"chunk_size={chunk_size}, max_workers={max_workers}, "
-                    f"extraction_method={extraction_method}")
+                    f"extraction_method={extraction_method}, text_only={text_only}")
         
     def process_file(self, pdf_file: Union[str, Path], output_file: Optional[str] = None) -> str:
         """
@@ -448,6 +451,49 @@ class PDFProcessor:
             Path to saved file
         """
         try:
+            output_path = Path(output_file)
+            
+            # Handle text-only mode
+            if self.text_only:
+                # Extract just the text lines from all pages
+                text_only_data = []
+                
+                for page_data in text_data.get('text', []):
+                    for line in page_data.get('content', []):
+                        if line.strip():  # Skip empty lines
+                            text_only_data.append({"text": line})
+                
+                # Handle case with no text
+                if not text_only_data:
+                    logger.warning("No text content extracted to save")
+                    text_only_data.append({"text": ""})
+                
+                # Save based on format
+                if self.output_format == 'csv':
+                    df = pd.DataFrame(text_only_data)
+                    df.to_csv(output_path, index=False, encoding='utf-8')
+                    
+                elif self.output_format == 'json':
+                    with open(output_path, 'w', encoding='utf-8') as f:
+                        # For JSON, save as a simple array of text strings
+                        import json
+                        json.dump([item["text"] for item in text_only_data], f, ensure_ascii=False, indent=2)
+                        
+                elif self.output_format == 'parquet':
+                    df = pd.DataFrame(text_only_data)
+                    df.to_parquet(output_path, index=False)
+                    
+                else:
+                    # Default to CSV if format not recognized
+                    df = pd.DataFrame(text_only_data)
+                    csv_path = output_path.with_suffix('.csv')
+                    df.to_csv(csv_path, index=False, encoding='utf-8')
+                    return str(csv_path)
+                    
+                logger.info(f"Saved {len(text_only_data)} text-only entries to {output_path}")
+                return str(output_path)
+            
+            # Original code for regular output
             # Flatten the data structure for tabular formats
             flattened_data = []
             
@@ -531,6 +577,7 @@ def parse_args():
     """Parse command line arguments."""
     parser = argparse.ArgumentParser(description="Production PDF text extractor")
     
+    # Existing arguments
     parser.add_argument('-i', '--input', required=True, 
                         help="Input PDF file or directory containing PDFs")
     parser.add_argument('-o', '--output', 
@@ -545,6 +592,10 @@ def parse_args():
                         help="Do not include PDF metadata in output")
     parser.add_argument('-v', '--verbose', action='store_true',
                         help="Enable verbose logging")
+    
+    # Add this new argument
+    parser.add_argument('--text-only', action='store_true',
+                        help="Output only the text column with no additional fields")
     
     return parser.parse_args()
 
@@ -564,12 +615,13 @@ def main():
         logger.debug("Debug logging enabled")
     
     try:
-        # Initialize processor
+        # Initialize processor with text_only parameter
         processor = PDFProcessor(
             output_format=args.format,
             max_workers=args.workers,
             extraction_method=args.method,
-            include_metadata=not args.no_metadata
+            include_metadata=not args.no_metadata,
+            text_only=args.text_only  # Add this line
         )
         
         input_path = Path(args.input)

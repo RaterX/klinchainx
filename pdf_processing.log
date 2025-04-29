@@ -1,0 +1,111 @@
+2025-04-29 15:38:40,248 - api_server - INFO - Cleaned up old files during startup
+2025-04-29 15:44:44,336 - api_server - INFO - Processing PDF uploads\45f26276-74a1-4de0-9a71-1bfc5331645f.pdf with task ID 45f26276-74a1-4de0-9a71-1bfc5331645f
+2025-04-29 15:44:44,339 - pdf_processor - INFO - Initialized PDFProcessor with: output_format=parquet, chunk_size=1000, max_workers=2, extraction_method=pypdf, text_only=True
+2025-04-29 15:44:44,430 - pdf_processor - INFO - Processing PDF: uploads\45f26276-74a1-4de0-9a71-1bfc5331645f.pdf
+2025-04-29 15:44:49,783 - pdf_processor - INFO - Saved 2327 text-only entries to results\45f26276-74a1-4de0-9a71-1bfc5331645f.parquet
+2025-04-29 15:44:49,785 - pdf_processor - INFO - Successfully processed uploads\45f26276-74a1-4de0-9a71-1bfc5331645f.pdf in 5.45 seconds. Output saved to results\45f26276-74a1-4de0-9a71-1bfc5331645f.parquet
+2025-04-29 15:44:49,786 - api_server - INFO - Task 45f26276-74a1-4de0-9a71-1bfc5331645f completed successfully
+2025-04-29 15:46:23,377 - api_server - INFO - Processing PDF uploads\c15aee6a-7114-4938-92db-8728efa926bb.pdf with task ID c15aee6a-7114-4938-92db-8728efa926bb
+2025-04-29 15:46:23,380 - pdf_processor - INFO - Initialized PDFProcessor with: output_format=csv, chunk_size=1000, max_workers=2, extraction_method=pymupdf, text_only=False
+2025-04-29 15:46:23,413 - pdf_processor - INFO - Processing PDF: uploads\c15aee6a-7114-4938-92db-8728efa926bb.pdf
+2025-04-29 15:46:23,838 - pdf_processor - INFO - Saved 2327 text entries to results\c15aee6a-7114-4938-92db-8728efa926bb.csv
+2025-04-29 15:46:23,845 - pdf_processor - INFO - Successfully processed uploads\c15aee6a-7114-4938-92db-8728efa926bb.pdf in 0.46 seconds. Output saved to results\c15aee6a-7114-4938-92db-8728efa926bb.csv
+2025-04-29 15:46:23,846 - api_server - INFO - Task c15aee6a-7114-4938-92db-8728efa926bb completed successfully
+2025-04-29 15:47:19,984 - api_server - INFO - Processing PDF uploads\121e0a01-54bd-4de0-af45-0fb73e1d111d.pdf with task ID 121e0a01-54bd-4de0-af45-0fb73e1d111d
+2025-04-29 15:47:19,989 - pdf_processor - INFO - Initialized PDFProcessor with: output_format=csv, chunk_size=1000, max_workers=2, extraction_method=pymupdf, text_only=False
+2025-04-29 15:47:20,027 - pdf_processor - INFO - Processing PDF: uploads\121e0a01-54bd-4de0-af45-0fb73e1d111d.pdf
+2025-04-29 15:47:20,393 - pdf_processor - INFO - Saved 2327 text entries to results\121e0a01-54bd-4de0-af45-0fb73e1d111d.csv
+2025-04-29 15:47:20,395 - pdf_processor - INFO - Successfully processed uploads\121e0a01-54bd-4de0-af45-0fb73e1d111d.pdf in 0.40 seconds. Output saved to results\121e0a01-54bd-4de0-af45-0fb73e1d111d.csv
+2025-04-29 15:47:20,396 - api_server - INFO - Task 121e0a01-54bd-4de0-af45-0fb73e1d111d completed successfully
+2025-04-29 15:49:23,545 - api_server - INFO - Cleaned up old files during startup
+2025-04-29 15:52:49,310 - api_server - INFO - Processing PDF uploads\47f3cc9a-02fb-4cad-a39d-79856a030ebc.pdf with task ID 47f3cc9a-02fb-4cad-a39d-79856a030ebc
+2025-04-29 15:52:49,311 - pdf_processor - INFO - Initialized PDFProcessor with: output_format=csv, chunk_size=1000, max_workers=2, extraction_method=pymupdf, text_only=True
+2025-04-29 15:52:49,353 - pdf_processor - INFO - Processing PDF: uploads\47f3cc9a-02fb-4cad-a39d-79856a030ebc.pdf
+2025-04-29 15:52:49,757 - pdf_processor - INFO - Saved 2327 text-only entries to results\47f3cc9a-02fb-4cad-a39d-79856a030ebc.csv
+2025-04-29 15:52:49,758 - pdf_processor - INFO - Successfully processed uploads\47f3cc9a-02fb-4cad-a39d-79856a030ebc.pdf in 0.44 seconds. Output saved to results\47f3cc9a-02fb-4cad-a39d-79856a030ebc.csv
+2025-04-29 15:52:49,759 - api_server - INFO - Task 47f3cc9a-02fb-4cad-a39d-79856a030ebc completed successfully
+2025-04-29 15:53:22,455 - api_server - INFO - Processing PDF uploads\cc9b4b92-39df-4ea9-9fc4-e00caa24488b.pdf with task ID cc9b4b92-39df-4ea9-9fc4-e00caa24488b
+2025-04-29 15:53:22,457 - pdf_processor - INFO - Initialized PDFProcessor with: output_format=csv, chunk_size=1000, max_workers=2, extraction_method=pymupdf, text_only=True
+2025-04-29 15:53:22,487 - pdf_processor - INFO - Processing PDF: uploads\cc9b4b92-39df-4ea9-9fc4-e00caa24488b.pdf
+2025-04-29 15:53:22,762 - pdf_processor - INFO - Saved 2327 text-only entries to results\cc9b4b92-39df-4ea9-9fc4-e00caa24488b.csv
+2025-04-29 15:53:22,763 - pdf_processor - INFO - Successfully processed uploads\cc9b4b92-39df-4ea9-9fc4-e00caa24488b.pdf in 0.31 seconds. Output saved to results\cc9b4b92-39df-4ea9-9fc4-e00caa24488b.csv
+2025-04-29 15:53:22,764 - api_server - INFO - Task cc9b4b92-39df-4ea9-9fc4-e00caa24488b completed successfully
+2025-04-29 15:57:34,494 - api_server - INFO - Cleaned up old files during startup
+2025-04-29 15:58:04,131 - api_server - INFO - Processing PDF uploads\bdafb9d7-23cb-4fa7-9d54-0ad3016e8b60.pdf with task ID bdafb9d7-23cb-4fa7-9d54-0ad3016e8b60
+2025-04-29 15:58:04,133 - pdf_processor - INFO - Initialized PDFProcessor with: output_format=csv, chunk_size=1000, max_workers=2, extraction_method=auto, text_only=True
+2025-04-29 15:58:04,163 - pdf_processor - INFO - Processing PDF: uploads\bdafb9d7-23cb-4fa7-9d54-0ad3016e8b60.pdf
+2025-04-29 15:58:04,467 - pdf_processor - INFO - Saved 2327 text-only entries to results\bdafb9d7-23cb-4fa7-9d54-0ad3016e8b60.csv
+2025-04-29 15:58:04,474 - pdf_processor - INFO - Successfully processed uploads\bdafb9d7-23cb-4fa7-9d54-0ad3016e8b60.pdf in 0.34 seconds. Output saved to results\bdafb9d7-23cb-4fa7-9d54-0ad3016e8b60.csv
+2025-04-29 15:58:04,476 - api_server - INFO - Task bdafb9d7-23cb-4fa7-9d54-0ad3016e8b60 completed successfully
+2025-04-29 16:07:20,978 - api_server - INFO - Cleaned up old files during startup
+2025-04-29 16:07:55,076 - api_server - INFO - Processing PDF uploads\cb65f92f-8fe0-4ae4-a1ad-bc1f77ac6ae2.pdf with task ID cb65f92f-8fe0-4ae4-a1ad-bc1f77ac6ae2
+2025-04-29 16:07:55,079 - pdf_processor - INFO - Initialized PDFProcessor with: output_format=csv, chunk_size=1000, max_workers=2, extraction_method=pymupdf, text_only=True
+2025-04-29 16:07:55,121 - pdf_processor - INFO - Processing PDF: uploads\cb65f92f-8fe0-4ae4-a1ad-bc1f77ac6ae2.pdf
+2025-04-29 16:07:55,537 - pdf_processor - INFO - Saved 2327 text-only entries to results\cb65f92f-8fe0-4ae4-a1ad-bc1f77ac6ae2.csv
+2025-04-29 16:07:55,537 - pdf_processor - INFO - Successfully processed uploads\cb65f92f-8fe0-4ae4-a1ad-bc1f77ac6ae2.pdf in 0.46 seconds. Output saved to results\cb65f92f-8fe0-4ae4-a1ad-bc1f77ac6ae2.csv
+2025-04-29 16:07:55,539 - api_server - INFO - Task cb65f92f-8fe0-4ae4-a1ad-bc1f77ac6ae2 completed successfully
+2025-04-29 16:08:20,670 - api_server - ERROR - Error scheduling task deletion cb65f92f-8fe0-4ae4-a1ad-bc1f77ac6ae2: "TaskStatus" object has no field "scheduled_for_deletion"
+2025-04-29 16:13:24,860 - api_server - INFO - Cleaned up old files during startup
+2025-04-29 16:13:28,332 - api_server - INFO - Cleaned up old files during startup
+2025-04-29 16:13:47,409 - api_server - INFO - Cleaned up old files during startup
+2025-04-29 16:14:06,858 - api_server - INFO - Cleaned up old files during startup
+2025-04-29 16:14:36,119 - api_server - INFO - Cleaned up old files during startup
+2025-04-29 16:14:55,785 - api_server - INFO - Processing PDF uploads\fb064c18-1102-4a5b-8a43-56a7904bc6d7.pdf with task ID fb064c18-1102-4a5b-8a43-56a7904bc6d7
+2025-04-29 16:14:55,787 - pdf_processor - INFO - Initialized PDFProcessor with: output_format=csv, chunk_size=1000, max_workers=2, extraction_method=auto, text_only=True
+2025-04-29 16:14:55,826 - pdf_processor - INFO - Processing PDF: uploads\fb064c18-1102-4a5b-8a43-56a7904bc6d7.pdf
+2025-04-29 16:14:56,128 - pdf_processor - INFO - Saved 2327 text-only entries to results\fb064c18-1102-4a5b-8a43-56a7904bc6d7.csv
+2025-04-29 16:14:56,129 - pdf_processor - INFO - Successfully processed uploads\fb064c18-1102-4a5b-8a43-56a7904bc6d7.pdf in 0.33 seconds. Output saved to results\fb064c18-1102-4a5b-8a43-56a7904bc6d7.csv
+2025-04-29 16:14:56,130 - api_server - INFO - Task fb064c18-1102-4a5b-8a43-56a7904bc6d7 completed successfully
+2025-04-29 16:15:39,664 - api_server - INFO - Processing PDF uploads\d296fbc2-4f7d-4e3b-a130-c8d23bf71070.pdf with task ID d296fbc2-4f7d-4e3b-a130-c8d23bf71070
+2025-04-29 16:15:39,673 - pdf_processor - INFO - Initialized PDFProcessor with: output_format=csv, chunk_size=1000, max_workers=2, extraction_method=auto, text_only=True
+2025-04-29 16:15:39,715 - pdf_processor - INFO - Processing PDF: uploads\d296fbc2-4f7d-4e3b-a130-c8d23bf71070.pdf
+2025-04-29 16:15:39,794 - pdf_processor - INFO - Saved 133 text-only entries to results\d296fbc2-4f7d-4e3b-a130-c8d23bf71070.csv
+2025-04-29 16:15:39,795 - pdf_processor - INFO - Successfully processed uploads\d296fbc2-4f7d-4e3b-a130-c8d23bf71070.pdf in 0.12 seconds. Output saved to results\d296fbc2-4f7d-4e3b-a130-c8d23bf71070.csv
+2025-04-29 16:15:39,795 - api_server - INFO - Task d296fbc2-4f7d-4e3b-a130-c8d23bf71070 completed successfully
+2025-04-29 16:18:28,679 - api_server - INFO - Processing PDF uploads\4a9aa99b-23be-4518-aea7-7c902c6f6a29.pdf with task ID 4a9aa99b-23be-4518-aea7-7c902c6f6a29
+2025-04-29 16:18:28,683 - pdf_processor - INFO - Initialized PDFProcessor with: output_format=csv, chunk_size=1000, max_workers=2, extraction_method=auto, text_only=False
+2025-04-29 16:18:28,721 - pdf_processor - INFO - Processing PDF: uploads\4a9aa99b-23be-4518-aea7-7c902c6f6a29.pdf
+2025-04-29 16:18:28,805 - pdf_processor - INFO - Saved 223 text entries to results\4a9aa99b-23be-4518-aea7-7c902c6f6a29.csv
+2025-04-29 16:18:28,805 - pdf_processor - INFO - Successfully processed uploads\4a9aa99b-23be-4518-aea7-7c902c6f6a29.pdf in 0.12 seconds. Output saved to results\4a9aa99b-23be-4518-aea7-7c902c6f6a29.csv
+2025-04-29 16:18:28,806 - api_server - INFO - Task 4a9aa99b-23be-4518-aea7-7c902c6f6a29 completed successfully
+2025-04-29 16:19:58,439 - api_server - INFO - Cleaned up old files during startup
+2025-04-29 16:20:38,696 - api_server - INFO - Processing PDF uploads\43c058d8-61d3-4ddd-a558-352699c0f986.pdf with task ID 43c058d8-61d3-4ddd-a558-352699c0f986
+2025-04-29 16:20:38,698 - pdf_processor - INFO - Initialized PDFProcessor with: output_format=json, chunk_size=1000, max_workers=2, extraction_method=auto, text_only=True
+2025-04-29 16:20:38,729 - pdf_processor - INFO - Processing PDF: uploads\43c058d8-61d3-4ddd-a558-352699c0f986.pdf
+2025-04-29 16:20:38,908 - pdf_processor - INFO - Saved 455 text-only entries to results\43c058d8-61d3-4ddd-a558-352699c0f986.json
+2025-04-29 16:20:38,909 - pdf_processor - INFO - Successfully processed uploads\43c058d8-61d3-4ddd-a558-352699c0f986.pdf in 0.21 seconds. Output saved to results\43c058d8-61d3-4ddd-a558-352699c0f986.json
+2025-04-29 16:20:38,911 - api_server - INFO - Task 43c058d8-61d3-4ddd-a558-352699c0f986 completed successfully
+2025-04-29 16:21:19,071 - api_server - INFO - Processing PDF uploads\597979de-a595-4eae-a809-a1e36ce180e1.pdf with task ID 597979de-a595-4eae-a809-a1e36ce180e1
+2025-04-29 16:21:19,074 - pdf_processor - INFO - Initialized PDFProcessor with: output_format=parquet, chunk_size=1000, max_workers=2, extraction_method=auto, text_only=True
+2025-04-29 16:21:19,107 - pdf_processor - INFO - Processing PDF: uploads\597979de-a595-4eae-a809-a1e36ce180e1.pdf
+2025-04-29 16:21:19,353 - pdf_processor - INFO - Saved 27 text-only entries to results\597979de-a595-4eae-a809-a1e36ce180e1.parquet
+2025-04-29 16:21:19,354 - pdf_processor - INFO - Successfully processed uploads\597979de-a595-4eae-a809-a1e36ce180e1.pdf in 0.28 seconds. Output saved to results\597979de-a595-4eae-a809-a1e36ce180e1.parquet
+2025-04-29 16:21:19,354 - api_server - INFO - Task 597979de-a595-4eae-a809-a1e36ce180e1 completed successfully
+2025-04-29 16:21:55,624 - api_server - INFO - Processing PDF uploads\49761571-0ea0-4f1c-b42c-940eeb0d67bf.pdf with task ID 49761571-0ea0-4f1c-b42c-940eeb0d67bf
+2025-04-29 16:21:55,627 - pdf_processor - INFO - Initialized PDFProcessor with: output_format=csv, chunk_size=1000, max_workers=2, extraction_method=auto, text_only=True
+2025-04-29 16:21:55,662 - pdf_processor - INFO - Processing PDF: uploads\49761571-0ea0-4f1c-b42c-940eeb0d67bf.pdf
+2025-04-29 16:21:55,690 - pdf_processor - INFO - Saved 40 text-only entries to results\49761571-0ea0-4f1c-b42c-940eeb0d67bf.csv
+2025-04-29 16:21:55,691 - pdf_processor - INFO - Successfully processed uploads\49761571-0ea0-4f1c-b42c-940eeb0d67bf.pdf in 0.06 seconds. Output saved to results\49761571-0ea0-4f1c-b42c-940eeb0d67bf.csv
+2025-04-29 16:21:55,692 - api_server - INFO - Task 49761571-0ea0-4f1c-b42c-940eeb0d67bf completed successfully
+2025-04-29 16:22:22,034 - api_server - INFO - Processing PDF uploads\d26b5e80-1890-45bc-aee8-dc63194dc90e.pdf with task ID d26b5e80-1890-45bc-aee8-dc63194dc90e
+2025-04-29 16:22:22,037 - pdf_processor - INFO - Initialized PDFProcessor with: output_format=csv, chunk_size=1000, max_workers=2, extraction_method=pymupdf, text_only=True
+2025-04-29 16:22:22,070 - pdf_processor - INFO - Processing PDF: uploads\d26b5e80-1890-45bc-aee8-dc63194dc90e.pdf
+2025-04-29 16:22:22,149 - pdf_processor - INFO - Saved 27 text-only entries to results\d26b5e80-1890-45bc-aee8-dc63194dc90e.csv
+2025-04-29 16:22:22,150 - pdf_processor - INFO - Successfully processed uploads\d26b5e80-1890-45bc-aee8-dc63194dc90e.pdf in 0.11 seconds. Output saved to results\d26b5e80-1890-45bc-aee8-dc63194dc90e.csv
+2025-04-29 16:22:22,151 - api_server - INFO - Task d26b5e80-1890-45bc-aee8-dc63194dc90e completed successfully
+2025-04-29 16:23:58,414 - api_server - INFO - Processing PDF uploads\da3767da-5f75-48d0-a9ce-8ac5c5269410.pdf with task ID da3767da-5f75-48d0-a9ce-8ac5c5269410
+2025-04-29 16:23:58,415 - pdf_processor - INFO - Initialized PDFProcessor with: output_format=csv, chunk_size=1000, max_workers=2, extraction_method=pymupdf, text_only=True
+2025-04-29 16:23:58,439 - pdf_processor - INFO - Processing PDF: uploads\da3767da-5f75-48d0-a9ce-8ac5c5269410.pdf
+2025-04-29 16:23:58,811 - pdf_processor - INFO - Saved 2189 text-only entries to results\da3767da-5f75-48d0-a9ce-8ac5c5269410.csv
+2025-04-29 16:23:58,812 - pdf_processor - INFO - Successfully processed uploads\da3767da-5f75-48d0-a9ce-8ac5c5269410.pdf in 0.40 seconds. Output saved to results\da3767da-5f75-48d0-a9ce-8ac5c5269410.csv
+2025-04-29 16:23:58,814 - api_server - INFO - Task da3767da-5f75-48d0-a9ce-8ac5c5269410 completed successfully
+2025-04-29 16:26:03,795 - api_server - INFO - Task 43c058d8-61d3-4ddd-a558-352699c0f986 deleted after delay
+2025-04-29 16:26:25,634 - api_server - INFO - Task 597979de-a595-4eae-a809-a1e36ce180e1 deleted after delay
+2025-04-29 16:27:39,595 - api_server - INFO - Task d26b5e80-1890-45bc-aee8-dc63194dc90e deleted after delay
+2025-04-29 16:29:38,044 - api_server - INFO - Task da3767da-5f75-48d0-a9ce-8ac5c5269410 deleted after delay
+2025-04-29 16:34:32,436 - api_server - INFO - Processing PDF uploads\b183fe88-b4bf-4d4e-9adf-5cbe4e9a02b7.pdf with task ID b183fe88-b4bf-4d4e-9adf-5cbe4e9a02b7
+2025-04-29 16:34:32,437 - pdf_processor - INFO - Initialized PDFProcessor with: output_format=csv, chunk_size=1000, max_workers=2, extraction_method=auto, text_only=False
+2025-04-29 16:34:32,476 - pdf_processor - INFO - Processing PDF: uploads\b183fe88-b4bf-4d4e-9adf-5cbe4e9a02b7.pdf
+2025-04-29 16:34:32,955 - pdf_processor - INFO - Saved 2189 text entries to results\b183fe88-b4bf-4d4e-9adf-5cbe4e9a02b7.csv
+2025-04-29 16:34:32,956 - pdf_processor - INFO - Successfully processed uploads\b183fe88-b4bf-4d4e-9adf-5cbe4e9a02b7.pdf in 0.52 seconds. Output saved to results\b183fe88-b4bf-4d4e-9adf-5cbe4e9a02b7.csv
+2025-04-29 16:34:32,960 - api_server - INFO - Task b183fe88-b4bf-4d4e-9adf-5cbe4e9a02b7 completed successfully
